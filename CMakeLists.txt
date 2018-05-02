@@ -91,9 +91,6 @@ include_directories(
 add_library(common STATIC IMPORTED)
 set_property(TARGET common PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcommon.a)
 
-#add_library(blocks STATIC IMPORTED)
-#set_property(TARGET blocks PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libblocks.a)
-
 add_library(multisig STATIC IMPORTED)
 set_property(TARGET multisig PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libmultisig.a)
 
@@ -195,7 +192,6 @@ set(LIBRARIES
         multisig
         daemonizer
         cncrypto
-        blocks
         lmdb
         ringct
         ringct_basic
