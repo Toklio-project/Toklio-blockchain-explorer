@@ -78,7 +78,7 @@ set(MONERO_LIBS_DIR
 
 # set location of moneroheaders
 set(MONERO_HEADERS_DIR
-        /opt/Toklio-dev/headers)
+        ~/Toklio)
 # include monero headers
 include_directories(
         ${MONERO_HEADERS_DIR}/src
