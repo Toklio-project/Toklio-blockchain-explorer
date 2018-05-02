@@ -72,6 +72,21 @@ include_directories(${Boost_INCLUDE_DIRS})
 include_directories("ext/mstch/include")
 include_directories("ext/crow")
 
+# set location of monero static libraries
+set(MONERO_LIBS_DIR
+        /opt/Toklio-dev/libs)
+
+# set location of moneroheaders
+set(MONERO_HEADERS_DIR
+        /opt/Toklio-dev/headers)
+# include monero headers
+include_directories(
+        ${MONERO_HEADERS_DIR}/src
+        ${MONERO_HEADERS_DIR}/external
+        ${MONERO_HEADERS_DIR}/build
+        ${MONERO_HEADERS_DIR}/contrib/epee/include
+        ${MONERO_HEADERS_DIR}/external/easylogging++
+        ${MONERO_HEADERS_DIR}/external/db_drivers/liblmdb)
 # add ext/ subfolder
 add_subdirectory(ext/)
 
