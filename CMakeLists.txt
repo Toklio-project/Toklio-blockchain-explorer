@@ -91,8 +91,29 @@ include_directories(
 add_library(common STATIC IMPORTED)
 set_property(TARGET common PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcommon.a)
 
-add_library(blocks STATIC IMPORTED)
-set_property(TARGET blocks PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libblocks.a)
+#add_library(blocks STATIC IMPORTED)
+#set_property(TARGET blocks PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libblocks.a)
+
+add_library(multisig STATIC IMPORTED)
+set_property(TARGET multisig PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libmultisig.a)
+
+add_library(cncrypto STATIC IMPORTED)
+set_property(TARGET cncrypto PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcncrypto.a)
+
+add_library(ringct_basic STATIC IMPORTED)
+set_property(TARGET ringct_basic PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libringct_basic.a)
+
+add_library(device STATIC IMPORTED)
+set_property(TARGET device PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libdevice.a)
+
+add_library(easylogging STATIC IMPORTED)
+set_property(TARGET easylogging PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libeasylogging.a)
+
+add_library(checkpoints STATIC IMPORTED)
+set_property(TARGET checkpoints PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcheckpoints.a)
+
+add_library(version STATIC IMPORTED)
+set_property(TARGET version PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libversion.a)
 
 add_library(cryptoxmr STATIC IMPORTED)
 set_property(TARGET cryptoxmr
