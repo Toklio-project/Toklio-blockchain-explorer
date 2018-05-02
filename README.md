@@ -1,6 +1,6 @@
-# Onion Monero Blockchain Explorer
+# Toklio Blockchain Explorer
 
-Currently available Monero blockchain explorers have several limitations which are of
+Currently available Toklio blockchain explorers have several limitations which are of
 special importance to privacy-oriented users:
 
  - they use JavaScript,
@@ -8,59 +8,23 @@ special importance to privacy-oriented users:
  - track users activates through google analytics,
  - are closed sourced,
  - are not available as hidden services,
- - do not support Monero testnet nor stagenet networks,
+ - do not support Toklio testnet nor stagenet networks,
  - have limited JSON API.
 
 
 In this example, these limitations are addressed by development of
-an Onion Monero Blockchain Explorer. The example not only shows how to use
-Monero C++ libraries, but also demonstrates how to use:
+an Onion Toklio Blockchain Explorer. The example not only shows how to use
+Toklio C++ libraries, but also demonstrates how to use:
 
  - [crow](https://github.com/ipkn/crow) - C++ micro web framework
  - [mstch](https://github.com/no1msd/mstch) - C++ {{mustache}} templates
  - [json](https://github.com/nlohmann/json) - JSON for Modern C++
  - [fmt](https://github.com/fmtlib/fmt) - Small, safe and fast string formatting library
 
-## Addresses
 
-Tor users:
+## Toklio Blockchain Explorer features
 
- - [http://dvwae436pd7nt4bc.onion](http://dvwae436pd7nt4bc.onion) (Front-end templates are [maintained by @suhz](https://github.com/suhz/onion-monero-blockchain-explorer/tree/moneroexplorer.com/src/templates)).
-
-Clearnet versions:
- - [https://labor.serveo.net/](https://labor.serveo.net/) - temprorary link (slow), bleading edge version.
- - [https://xmrchain.net/](https://xmrchain.net/) - https enabled, most popular and very stable.
- - [https://MoneroExplorer.com/](https://moneroexplorer.com/) - nice looking one, https enabled.
- - [https://monerohash.com/explorer/](https://monerohash.com/explorer/) - nice looking one, https enabled.
- - [http://explore.MoneroWorld.com](http://explore.moneroworld.com) - same as the second one.
- - [https://moneroexplorer.pro/](https://moneroexplorer.pro/) - nice looking one, https enabled.
- - [http://monerochain.com/](http://monerochain.com/) - JSON API based, multiple nodes.   
- - [https://blox.minexmr.com/](https://blox.minexmr.com/) - - https enabled.
-
-Testnet version:
-
- - [http://nimis.serveo.net/](http://nimis.serveo.net/) - bleeding edge version (down currently).
- - [https://testnet.xmrchain.com/](https://testnet.xmrchain.com/) - https enabled.
- - [https://explorer.monero-otc.com/](https://explorer.monero-otc.com/) - https enabled.
-
-Stagenet version:
-
- - [http://162.210.173.150:8083/](http://162.210.173.150:8083/) - recent version.
-
-i2p users (main Monero network):
-
- - [http://7o4gezpkye6ekibhgpkg7v626ze4idsirapufzrefkdysa6zxhha.b32.i2p/](http://7o4gezpkye6ekibhgpkg7v626ze4idsirapufzrefkdysa6zxhha.b32.i2p/)
-
-Alternative block explorers:
-
-- [http://moneroblocks.info](http://moneroblocks.info/)
-- [https://monerobase.com](https://monerobase.com/)
-- [http://chainradar.com](http://chainradar.com/xmr/blocks)
-
-
-## Onion Monero Blockchain Explorer features
-
-The key features of the Onion Monero Blockchain Explorer are:
+The key features of the Onion Toklio Blockchain Explorer are:
 
  - no cookies, no web analytics trackers, no images,
  - by default no JavaScript, but can be enabled for client side decoding and proving transactions,
@@ -69,12 +33,12 @@ The key features of the Onion Monero Blockchain Explorer are:
  - showing encrypted payments ID,
  - showing ring signatures,
  - showing transaction extra field,
- - showing public components of Monero addresses,
- - decoding which outputs and mixins belong to the given Monero address and viewkey,
- - can prove that you send Monero to someone,
+ - showing public components of Toklio addresses,
+ - decoding which outputs and mixins belong to the given Toklio address and viewkey,
+ - can prove that you send Toklio to someone,
  - detailed information about mixins, such as, mixins' age, timescale, mixin of mixins,
  - showing number of amount output indices,
- - support Monero testnet network,
+ - support Toklio testnet network,
  - tx checker and pusher for online pushing of transactions,
  - estimate possible spendings based on address and viewkey,
  - can provide total amount of all miner fees.
@@ -92,9 +56,9 @@ Current development branch:
 
 ## Compilation on Ubuntu 16.04
 
-##### Compile latest Monero development version
+##### Compile latest Toklio development version
 
-Download and compile recent Monero into your home folder:
+Download and compile recent Toklio into your home folder:
 
 ```bash
 # first install monero dependecines
@@ -117,11 +81,11 @@ make
 
 ##### Compile and run the explorer
 
-Once the Monero is compiles, the explorer can be downloaded and compiled
+Once the Toklio is compiles, the explorer can be downloaded and compiled
 as follows:
 
 ```bash
-# go to home folder if still in ~/monero
+# go to home folder if still in ~/Toklio
 cd ~
 
 # download the source code
@@ -137,7 +101,7 @@ mkdir build && cd build
 cmake ..
 
 # altearnatively can use: cmake -DMONERO_DIR=/path/to/monero_folder ..
-# if monero is not in ~/monero
+# if monero is not in ~/Toklio
 #
 # also can build with ASAN (sanitizers), for example
 # cmake -DSANITIZE_ADDRESS=On ..
@@ -156,7 +120,7 @@ To run it:
 ./xmrblocks
 ```
 
-By default it will look for blockchain in its default location i.e., `~/.bitmonero/lmdb`.
+By default it will look for blockchain in its default location i.e., `~/.Toklio/lmdb`.
 You can use `--bc-path` option if its in different location.
 Example output:
 
@@ -171,7 +135,7 @@ Go to your browser: http://127.0.0.1:8081
 ## The explorer's command line options
 
 ```
-xmrblocks, Onion Monero Blockchain Explorer:
+xmrblocks, Onion Toklio Blockchain Explorer:
   -h [ --help ] [=arg(=1)] (=0)         produce help message
   -t [ --testnet ] [=arg(=1)] (=0)      use testnet blockchain
   -s [ --stagenet ] [=arg(=1)] (=0)     use stagenet blockchain
@@ -195,7 +159,7 @@ xmrblocks, Onion Monero Blockchain Explorer:
                                         enable users to have the index page on
                                         autorefresh
   --enable-emission-monitor [=arg(=1)] (=0)
-                                        enable Monero total emission monitoring
+                                        enable Toklio total emission monitoring
                                         thread
   -p [ --port ] arg (=8081)             default explorer port
   --testnet-url arg                     you can specify testnet url, if you run
@@ -214,13 +178,13 @@ xmrblocks, Onion Monero Blockchain Explorer:
   --mempool-refresh-time arg (=5)       time, in seconds, for each refresh of
                                         mempool state
   -b [ --bc-path ] arg                  path to lmdb folder of the blockchain,
-                                        e.g., ~/.bitmonero/lmdb
+                                        e.g., ~/.Toklio/lmdb
   --ssl-crt-file arg                    path to crt file for ssl (https)
                                         functionality
   --ssl-key-file arg                    path to key file for ssl (https)
                                         functionality
   -d [ --deamon-url ] arg (=http:://127.0.0.1:18081)
-                                        Monero deamon url
+                                        Toklio deamon url
 ```
 
 Example usage, defined as bash aliases.
@@ -235,9 +199,9 @@ alias xmrblockstestnet='~/onion-monero-blockchain-explorer/build/xmrblocks -t --
 
 These are aliases similar to those used for http://139.162.32.245:8081/ and http://139.162.32.245:8082/, respectively.
 
-## Enable Monero emission
+## Enable Toklio emission
 
-Obtaining current Monero emission amount is not straight forward. Thus, by default it is
+Obtaining current Toklio emission amount is not straight forward. Thus, by default it is
 disabled. To enable it use `--enable-emission-monitor` flag, e.g.,
 
 
@@ -249,10 +213,10 @@ This flag will enable emission monitoring thread. When started, the thread
  will initially scan the entire blockchain, and calculate the cumulative emission based on each block.
 Since it is a separate thread, the explorer will work as usual during this time.
 Every 10000 blocks, the thread will save current emission in a file, by default,
- in `~/.bitmonero/lmdb/emission_amount.txt`. For testnet or stagenet networks,
- it is `~/.bitmonero/testnet/lmdb/emission_amount.txt` or `~/.bitmonero/stagenet/lmdb/emission_amount.txt`. This file is used so that we don't
+ in `~/.Toklio/lmdb/emission_amount.txt`. For testnet or stagenet networks,
+ it is `~/.Toklio/testnet/lmdb/emission_amount.txt` or `~/.Toklio/stagenet/lmdb/emission_amount.txt`. This file is used so that we don't
  need to rescan entire blockchain whenever the explorer is restarted. When the
- explorer restarts, the thread will first check if `~/.bitmonero/lmdb/emission_amount.txt`
+ explorer restarts, the thread will first check if `~/.Toklio/lmdb/emission_amount.txt`
  is present, read its values, and continue from there if possible. Subsequently, only the initial
  use of the tread is time consuming. Once the thread scans the entire blockchain, it updates
  the emission amount using new blocks as they come. Since the explorer writes this file, there can
@@ -266,10 +230,10 @@ Every 10000 blocks, the thread will save current emission in a file, by default,
  displayed on the front page, e.g., :
 
 ```
-Monero emission (fees) is 14485540.430 (52545.373) as of 1313448 block
+Toklio emission (fees) is 14485540.430 (52545.373) as of 1313448 block
 ```
 
-The values given, can be checked using Monero daemon's  `print_coinbase_tx_sum` command.
+The values given, can be checked using Toklio daemon's  `print_coinbase_tx_sum` command.
 For example, for the above example: `print_coinbase_tx_sum 0 1313449`.
 
 To disable the monitor, simply restart the explorer without `--enable-emission-monitor` flag.
@@ -578,7 +542,7 @@ For this, we use recipient's address and our tx private key as a viewkey value,
 Checking outputs:
 
 ```bash
-# we use here official Monero project's donation address as an example
+# we use here official Toklio project's donation address as an example
 curl  -w "\n" -X GET "http://127.0.0.1:8081/api/outputs?txhash=17049bc5f2d9fbca1ce8dae443bbbbed2fc02f1ee003ffdd0571996905faa831&address=44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A&viewkey=f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501&txprove=0"
 ```
 
@@ -785,7 +749,7 @@ var api_minor = response.data.api & 0xffff;
 
 #### api/rawblock/<block_number|block_hash>
 
-Return raw json block data, as represented in Monero.
+Return raw json block data, as represented in Toklio.
 
 ```bash
 curl  -w "\n" -X GET "http://139.162.32.245:8081/api/rawblock/1293257"
@@ -795,7 +759,7 @@ Example result not shown.
 
 #### api/rawtransaction/<tx_hash>
 
-Return raw json tx data, as represented in Monero.
+Return raw json tx data, as represented in Toklio.
 
 ```bash
 curl  -w "\n" -X GET "http://139.162.32.245:8081/api/rawtransaction/6093260dbe79fd6277694d14789dc8718f1bd54457df8bab338c2efa3bb0f03d"
