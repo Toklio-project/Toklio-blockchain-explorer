@@ -22,11 +22,11 @@ endif()
 message(STATUS MONERO_DIR ": ${MONERO_DIR}")
 
 set(MONERO_SOURCE_DIR ${MONERO_DIR}
-        CACHE PATH "Path to the root directory for Toklio")
+        CACHE PATH "Path to the root directory for Monero")
 
 # set location of monero build tree
 set(MONERO_BUILD_DIR ${MONERO_SOURCE_DIR}/build/release/
-        CACHE PATH "Path to the build directory for Toklio")
+        CACHE PATH "Path to the build directory for Monero")
 
 set(MY_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake"
         CACHE PATH "The path to the cmake directory of the current project")
@@ -34,11 +34,11 @@ set(MY_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake"
 list(APPEND CMAKE_MODULE_PATH "${MY_CMAKE_DIR}")
 
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "${MONERO_BUILD_DIR}"
-        CACHE PATH "Add Toklio directory for library searching")
+        CACHE PATH "Add Monero directory for library searching")
 
 include(MyUtils)
 
-find_package(Toklio)
+find_package(Monero)
 
 # find boost
 find_package(Boost COMPONENTS
@@ -72,90 +72,6 @@ include_directories(${Boost_INCLUDE_DIRS})
 include_directories("ext/mstch/include")
 include_directories("ext/crow")
 
-# set location of monero static libraries
-set(MONERO_LIBS_DIR
-        /opt/Toklio-dev/libs)
-
-# set location of moneroheaders
-set(MONERO_HEADERS_DIR
-        ~/Toklio)
-# include monero headers
-include_directories(
-        ${MONERO_HEADERS_DIR}/src
-        ${MONERO_HEADERS_DIR}/external
-        ${MONERO_HEADERS_DIR}/build
-        ${MONERO_HEADERS_DIR}/contrib/epee/include
-        ${MONERO_HEADERS_DIR}/external/easylogging++
-        ${MONERO_HEADERS_DIR}/external/db_drivers/liblmdb)
-        
-add_library(common STATIC IMPORTED)
-set_property(TARGET common PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcommon.a)
-
-add_library(multisig STATIC IMPORTED)
-set_property(TARGET multisig PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libmultisig.a)
-
-add_library(cncrypto STATIC IMPORTED)
-set_property(TARGET cncrypto PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcncrypto.a)
-
-add_library(ringct_basic STATIC IMPORTED)
-set_property(TARGET ringct_basic PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libringct_basic.a)
-
-add_library(device STATIC IMPORTED)
-set_property(TARGET device PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libdevice.a)
-
-add_library(easylogging STATIC IMPORTED)
-set_property(TARGET easylogging PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libeasylogging.a)
-
-add_library(checkpoints STATIC IMPORTED)
-set_property(TARGET checkpoints PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcheckpoints.a)
-
-add_library(version STATIC IMPORTED)
-set_property(TARGET version PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libversion.a)
-
-add_library(cryptoxmr STATIC IMPORTED)
-set_property(TARGET cryptoxmr
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcrypto.a)
-
-add_library(cryptonote_basic STATIC IMPORTED)
-set_property(TARGET cryptonote_basic
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcryptonote_basic.a)
-
-add_library(cryptonote_core STATIC IMPORTED)
-set_property(TARGET cryptonote_core
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcryptonote_core.a)
-
-add_library(cryptonote_protocol STATIC IMPORTED)
-set_property(TARGET cryptonote_protocol
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libcryptonote_protocol.a)
-
-add_library(daemonizer STATIC IMPORTED)
-set_property(TARGET daemonizer
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libdaemonizer.a)
-
-add_library(mnemonics STATIC IMPORTED)
-set_property(TARGET mnemonics
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libmnemonics.a)
-
-add_library(epee STATIC IMPORTED)
-set_property(TARGET epee
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libepee.a)
-
-add_library(blockchain_db STATIC IMPORTED)
-set_property(TARGET blockchain_db
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libblockchain_db.a)
-
-add_library(lmdb STATIC IMPORTED)
-set_property(TARGET lmdb
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/liblmdb.a)
-
-add_library(ringct STATIC IMPORTED)
-set_property(TARGET ringct
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libringct.a)
-
-add_library(wallet STATIC IMPORTED)
-set_property(TARGET wallet
-        PROPERTY IMPORTED_LOCATION ${MONERO_LIBS_DIR}/libwallet.a)
-        
 # add ext/ subfolder
 add_subdirectory(ext/)
 
@@ -192,6 +108,7 @@ set(LIBRARIES
         multisig
         daemonizer
         cncrypto
+        blocks
         lmdb
         ringct
         ringct_basic
@@ -202,6 +119,7 @@ set(LIBRARIES
         checkpoints
         version
         epee
+        pcsclite
         ${Boost_LIBRARIES}
         pthread
         unbound
