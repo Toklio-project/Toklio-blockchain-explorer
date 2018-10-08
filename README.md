@@ -41,8 +41,8 @@ The key features of the Onion Toklio Blockchain Explorer are:
  - support Toklio testnet network,
  - tx checker and pusher for online pushing of transactions,
  - estimate possible spendings based on address and viewkey,
- - can provide total amount of all miner fees.
- - decoding encrypted payment id.
+ - can provide total amount of all miner fees,
+ - decoding encrypted payment id,
  - decoding outputs and proving txs sent to sub-address.
 
 
@@ -54,7 +54,7 @@ Current development branch:
 
 
 
-## Compilation on Ubuntu 16.04
+## Compilation on Ubuntu 16.04/18.04
 
 ##### Compile latest Toklio development version
 
@@ -64,7 +64,7 @@ Download and compile recent Toklio into your home folder:
 # first install monero dependecines
 sudo apt update
 
-sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev
+sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev libpcsclite-dev
 
 # go to home folder
 cd ~
@@ -74,7 +74,7 @@ git clone --recursive https://github.com/monero-project/monero
 cd monero/
 
 # checkout last monero version
-git checkout -b last_release v0.12.0.0
+git checkout -b last_release v0.12.1.0
 
 make
 ```
@@ -110,10 +110,6 @@ cmake ..
 make
 ```
 
-When compilation finishes executable `xmrblocks` should be created. Before running
-please make sure that  `~/Downloads` folder exists and is writable.
-Time zone library that explorer is using, puts there
-its database of time zone offsets
 
 To run it:
 ```
