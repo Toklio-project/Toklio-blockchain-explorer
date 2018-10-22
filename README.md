@@ -46,22 +46,14 @@ The key features of the Onion Toklio Blockchain Explorer are:
  - decoding outputs and proving txs sent to sub-address.
 
 
-## Development branch
-
-Current development branch:
-
- - https://github.com/moneroexamples/onion-monero-blockchain-explorer/tree/devel
-
-
-
 ## Compilation on Ubuntu 16.04/18.04
 
-##### Compile latest Toklio development version
+##### Compile latest Toklio version (0.13)
 
 Download and compile recent Toklio into your home folder:
 
 ```bash
-# first install monero dependecines
+# first install Toklio dependecines
 sudo apt update
 
 sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev libpcsclite-dev
@@ -69,14 +61,12 @@ sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound
 # go to home folder
 cd ~
 
-git clone --recursive https://github.com/monero-project/monero
+git clone --recursive https://github.com/Toklio-project/Toklio
 
-cd monero/
+cd Toklio/
 
-# checkout last monero version
-git checkout -b last_release v0.12.1.0
 
-make
+USE_SINGLE_BUILDDIR=1 make
 ```
 
 ##### Compile and run the explorer
@@ -89,10 +79,10 @@ as follows:
 cd ~
 
 # download the source code
-git clone https://github.com/moneroexamples/onion-monero-blockchain-explorer.git
+git clone https://github.com/Toklio-project/Toklio-blockchain-explorer.git
 
 # enter the downloaded sourced code folder
-cd onion-monero-blockchain-explorer
+cd Toklio-blockchain-explorer
 
 # make a build folder and enter it
 mkdir build && cd build
@@ -100,8 +90,8 @@ mkdir build && cd build
 # create the makefile
 cmake ..
 
-# altearnatively can use: cmake -DMONERO_DIR=/path/to/monero_folder ..
-# if monero is not in ~/Toklio
+# altearnatively can use: cmake -DMONERO_DIR=/path/to/Toklio_folder ..
+# if Toklio is not in ~/Toklio
 #
 # also can build with ASAN (sanitizers), for example
 # cmake -DSANITIZE_ADDRESS=On ..
@@ -121,7 +111,7 @@ You can use `--bc-path` option if its in different location.
 Example output:
 
 ```bash
-[mwo@arch onion-monero-blockchain-explorer]$ ./xmrblocks
+[mwo@arch Toklio-blockchain-explorer]$ ./xmrblocks
 2016-May-28 10:04:49.160280 Blockchain initialized. last block: 1056761, d0.h0.m12.s47 time ago, current difficulty: 1517857750
 (2016-05-28 02:04:49) [INFO    ] Crow/0.1 server is running, local port 8081
 ```
@@ -187,10 +177,10 @@ Example usage, defined as bash aliases.
 
 ```bash
 # for mainnet explorer
-alias xmrblocksmainnet='~/onion-monero-blockchain-explorer/build/xmrblocks    --port 8081 --testnet-url "http://139.162.32.245:8082" --enable-pusher --enable-emission-monitor'
+alias xmrblocksmainnet='~/Toklio-blockchain-explorer/build/xmrblocks    --port 8081 --testnet-url "http://139.162.32.245:8082" --enable-pusher --enable-emission-monitor'
 
 # for testnet explorer
-alias xmrblockstestnet='~/onion-monero-blockchain-explorer/build/xmrblocks -t --port 8082 --mainnet-url "http://139.162.32.245:8081" --enable-pusher --enable-emission-monitor'
+alias xmrblockstestnet='~/Toklio-blockchain-explorer/build/xmrblocks -t --port 8082 --mainnet-url "http://139.162.32.245:8081" --enable-pusher --enable-emission-monitor'
 ```
 
 These are aliases similar to those used for http://139.162.32.245:8081/ and http://139.162.32.245:8082/, respectively.
@@ -654,7 +644,6 @@ Example result:
 
 ```json
 {
-{
   "data": {
     "address": "0182d5be0f708cecf2b6f9889738bde5c930fad846d5b530e021afd1ae7e24a687ad50af3a5d38896655669079ad0163b4a369f6c852cc816dace5fc7792b72f",
     "height": 960526,
@@ -762,12 +751,6 @@ curl  -w "\n" -X GET "http://139.162.32.245:8081/api/rawtransaction/6093260dbe79
 ```
 
 Example result not shown.
-
-## Other monero examples
-
-Other examples can be found on  [github](https://github.com/moneroexamples?tab=repositories).
-Please know that some of the examples/repositories are not
-finished and may not work as intended.
 
 ## How can you help?
 
