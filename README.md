@@ -24,7 +24,44 @@ Toklio C++ libraries, but also demonstrates how to use:
 
 ## Toklio Blockchain Explorer features
 
-The key features of the Onion Toklio Blockchain Explorer are:
+ - [http://dvwae436pd7nt4bc.onion](http://dvwae436pd7nt4bc.onion) (Down for now: front-end templates are [maintained by @suhz](https://github.com/suhz/onion-monero-blockchain-explorer/tree/moneroexplorer.com/src/templates)).
+
+Clearnet versions:
+ - [https://xmrchain.net/](https://xmrchain.net/) - https enabled, most popular and very stable.
+ - [https://monerohash.com/explorer/](https://monerohash.com/explorer/) - nice looking one, https enabled.
+ - [http://explore.MoneroWorld.com](http://explore.moneroworld.com) - same as the second one.
+ - [http://monerochain.com/](http://monerochain.com/) - JSON API based, multiple nodes.   
+ - [https://blox.minexmr.com/](https://blox.minexmr.com/) - - https enabled.
+ - [https://community.xmr.to/explorer/mainnet/](https://community.xmr.to/explorer/mainnet/)
+ - [https://exp.xmr.sk/](https://exp.xmr.sk/)
+
+
+Testnet version:
+
+ - [https://testnet.xmrchain.com/](https://testnet.xmrchain.com/) - https enabled.
+ - [https://community.xmr.to/explorer/testnet/](https://community.xmr.to/explorer/testnet/)
+
+Stagenet version:
+ 
+ - [https://stagenet.xmrchain.net/](https://stagenet.xmrchain.net/)
+ - [http://139.162.60.17:8082/](http://139.162.60.17:8082/) 
+ - [http://162.210.173.150:8083/](http://162.210.173.150:8083/)
+ - [https://community.xmr.to/explorer/stagenet/](https://community.xmr.to/explorer/stagenet/)
+
+i2p users (main Monero network):
+
+ - [http://7o4gezpkye6ekibhgpkg7v626ze4idsirapufzrefkdysa6zxhha.b32.i2p/](http://7o4gezpkye6ekibhgpkg7v626ze4idsirapufzrefkdysa6zxhha.b32.i2p/)
+
+Alternative block explorers:
+
+- [http://moneroblocks.info](http://moneroblocks.info/)
+- [https://monerovision.com](https://monerovision.com)
+- [http://chainradar.com](http://chainradar.com/xmr/blocks)
+
+
+## Onion Monero Blockchain Explorer features
+
+The key features of the Onion Monero Blockchain Explorer are:
 
  - no cookies, no web analytics trackers, no images,
  - by default no JavaScript, but can be enabled for client side decoding and proving transactions,
@@ -46,9 +83,17 @@ The key features of the Onion Toklio Blockchain Explorer are:
  - decoding outputs and proving txs sent to sub-address.
 
 
+## Development branch
+
+Current development branch:
+
+ - https://github.com/moneroexamples/onion-monero-blockchain-explorer/tree/devel
+
+Note: `devel` branch of the explorer follows `master` branch of the monero.
+
 ## Compilation on Ubuntu 16.04/18.04
 
-##### Compile latest Toklio version (0.13)
+##### Compile latest Monero version (0.14.0.0)
 
 Download and compile recent Toklio into your home folder:
 
@@ -56,15 +101,14 @@ Download and compile recent Toklio into your home folder:
 # first install Toklio dependecines
 sudo apt update
 
-sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev libpcsclite-dev
+sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev libhidapi-dev libhidapi-libusb0
 
 # go to home folder
 cd ~
 
-git clone --recursive https://github.com/Toklio-project/Toklio
+git clone --recursive -b release-v0.13 https://github.com/Toklio-project/Toklio
 
 cd Toklio/
-
 
 USE_SINGLE_BUILDDIR=1 make
 ```

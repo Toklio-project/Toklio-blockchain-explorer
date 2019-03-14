@@ -47,8 +47,8 @@ struct has_destructor
 
 namespace cryptonote
 {
-// declare struct in monero's cryptonote namespace.
-// monero should provide definition for this,
+// declare struct in toklio's cryptonote namespace.
+// toklio should provide definition for this,
 // but we need to have it declared as we are going to
 // check if its definition exist or not. depending on this
 // we decide what gets to be defined as
